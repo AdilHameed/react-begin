@@ -42,7 +42,7 @@ import { Card, CardImg,CardText, CardBody,
                     <ListGroup key={com.id}>
                    
                         <ListGroupItemText>{com.comment}</ListGroupItemText>
-                        <ListGroupItemText>--{com.author}, {com.date}</ListGroupItemText>
+                        <ListGroupItemText>--{com.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(com.date)))}</ListGroupItemText>
                     
                     </ListGroup>
                 </div>
@@ -69,6 +69,7 @@ import { Card, CardImg,CardText, CardBody,
         
     
         return(
+            <div className='container'>
             <div className='row'>
                   <div className="col-12 col-md-5 m-1">
                     {this.renderDish(this.props.selectedDish)}
@@ -76,6 +77,7 @@ import { Card, CardImg,CardText, CardBody,
                   <div className="col-12 col-md-5 m-1">
                    {this.showComment(this.props.selectedDish)}
                  </div>
+            </div>
             </div>
         
              
