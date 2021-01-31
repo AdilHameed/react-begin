@@ -1,16 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, CardImg,CardText, CardBody,
     CardTitle, ListGroup, ListGroupItemText} from 'reactstrap';
 
-   export default class SelectedDish extends Component
-   {
+
      
-    constructor(props)
-    {
-        super(props);
-        this.state = {};
-    }
-    renderDish(dish)
+    
+   function renderDish(dish)
     {
         if(dish != null)
         {
@@ -29,7 +24,7 @@ import { Card, CardImg,CardText, CardBody,
             )
         }
     }
-    showComment(dish)
+    function showComment(dish)
         {
 
         if(dish != null && dish.comments != null)
@@ -63,27 +58,24 @@ import { Card, CardImg,CardText, CardBody,
     }
 }
     
-    render()
-    {
-       
-        
-    
+  
+       const SelectedDish = (props) => {
         return(
             <div className='container'>
             <div className='row'>
                   <div className="col-12 col-md-5 m-1">
-                    {this.renderDish(this.props.selectedDish)}
+                    {renderDish(props.selectedDish)}
                     </div>
                   <div className="col-12 col-md-5 m-1">
-                   {this.showComment(this.props.selectedDish)}
+                   {showComment(props.selectedDish)}
                  </div>
             </div>
-            </div>
+            </div>    
+
+        );  
+       } 
+
+export default SelectedDish;
+    
         
-             
-               
-
-        );
-    }
-
-   }
+    
